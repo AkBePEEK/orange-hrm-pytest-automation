@@ -7,24 +7,43 @@ Data-driven tests – JSON payloads for employees / users
 Rich HTML reports – screenshots auto-attached on failure
 Parallel-ready – pytest-xdist compatible
 CI friendly – runs headless on GitHub Actions out-of-the-box
+
 📁 Project tree
+
 orange-hrm-pytest-automation/
+
 ├── pages/                      # Page-Object classes
+
 │   ├── login_page.py
+
 │   ├── pim_add_employee_page.py
+
 │   ├── admin_add_user_page.py
+
 │   └── dashboard_page.py
+
 ├── tests/
+
 │   └── test_employee_lifecycle.py
+
 ├── utils/
+
 │   └── screenshot_util.py
+
 ├── data/
+
 │   └── employee.json
+
 ├── report/                     # generated after run
+
 ├── conftest.py
+
 ├── pytest.ini
+
 ├── requirements.txt
+
 └── README.md
+
 🚀 Quick start
 Clone the repo
 
