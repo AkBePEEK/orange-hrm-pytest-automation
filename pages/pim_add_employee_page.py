@@ -1,4 +1,5 @@
 import os
+import time
 from typing import Optional
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,7 +11,7 @@ class PIMAddEmployeePage:
     FIRST_NAME = (By.NAME, "firstName")
     MIDDLE_NAME = (By.NAME, "middleName")
     LAST_NAME = (By.NAME, "lastName")
-    EMPLOYEE_ID = (By.XPATH, "(//input[@class='oxd-input oxd-input--active'])[5]")
+    EMPLOYEE_ID = (By.XPATH, "(//input[@class='oxd-input oxd-input--active'])")
     SAVE_BUTTON = (By.XPATH, "//button[@type='submit']")
     PROFILE_HEADER = (By.XPATH, "//h6[contains(.,'Personal Details')]")
 
@@ -21,6 +22,7 @@ class PIMAddEmployeePage:
     def navigate_to_add_employee(self):
         self.wait.until(EC.element_to_be_clickable(self.MENU_PIM)).click()
         self.wait.until(EC.element_to_be_clickable(self.ADD_BUTTON)).click()
+        time.sleep(2)
 
     def add_employee(self, first: str, middle: str, last: str, emp_id: str, photo_path: Optional[str] = None):
         self.wait.until(EC.visibility_of_element_located(self.FIRST_NAME)).send_keys(first)
@@ -37,6 +39,7 @@ class PIMAddEmployeePage:
         self.driver.find_element(*self.SAVE_BUTTON).click()
         # wait for personal details page
         self.wait.until(EC.visibility_of_element_located(self.PROFILE_HEADER))
+        time.sleep(2)  
 
     def get_employee_id(self) -> str:
         return self.driver.find_element(*self.EMPLOYEE_ID).get_attribute("value")
