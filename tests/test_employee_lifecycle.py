@@ -42,7 +42,7 @@ class TestEmployeeLifecycle:
 
         logger.info("Step 3: Create user account for the employee")
         self.admin_page.navigate_to_add_user()
-        full_name = f"{employee_data['first_name']} {employee_data['last_name']}"
+        full_name = f"{employee_data['first_name']} {employee_data['middle_name']} {employee_data['last_name']}"
         self.admin_page.create_user(
             employee_data["role"],
             full_name,
