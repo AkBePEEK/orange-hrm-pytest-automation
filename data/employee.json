@@ -1,0 +1,11 @@
+{
+  "first_name": "Arya",
+  "last_name": "Stark",
+  "middle_name": "NoOne",
+  "employee_id": "123456",
+  "photo": "data/arya.png",
+  "username": "arya.stark",
+  "password": "WinterIsComing@123",
+  "role": "ESS",
+  "sub_unit": "IT"
+}
