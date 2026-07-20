@@ -1,96 +1,48 @@
-# orange-hrm-pytest-automation
-End-to-end web-automation framework for OrangeHRM Demo site (https://opensource-demo.orangehrmlive.com)
-Built with Python • pytest • Selenium • Loguru • pytest-html
-# ✅ Features
-Modular Page-Object pattern – clean separation of UI and test logic
-Data-driven tests – JSON payloads for employees / users
-Rich HTML reports – screenshots auto-attached on failure
-Parallel-ready – pytest-xdist compatible
-CI friendly – runs headless on GitHub Actions out-of-the-box
+# 🤖 OrangeHRM Pytest Automation Framework
 
-# 📁 Project tree
-orange-hrm-pytest-automation/
-├── pages/                      # Page-Object classes
+Automated end-to-end web testing framework built with **Python**, **Pytest**, and **Selenium WebDriver** for testing the OrangeHRM portal.
 
-│   ├── login_page.py
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)
 
-│   ├── pim_add_employee_page.py
+---
 
-│   ├── admin_add_user_page.py
+## 🌟 Key Features
 
-│   └── dashboard_page.py
+- 🧪 **Page Object Model (POM)**: Decoupled UI page locators and test assertions for maintainable automation.
+- 📊 **Pytest Test Runner**: Fixtures for browser initialization, teardown, and parameterized test execution.
+- 📄 **HTML Test Reports**: Automated test execution logging and screenshot captures on failures.
+- 🔑 **Authentication & HR Workflow Testing**: Automated validation of user logins, employee management, and leave requests.
 
-├── tests/
+---
 
-│   └── test_employee_lifecycle.py
+## 🚀 Getting Started
 
-├── utils/
+### Prerequisites
+- Python 3.8+
+- Chrome / Firefox browser & WebDriver
 
-│   └── screenshot_util.py
+### Installation
 
-├── data/
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AkBePEEK/orange-hrm-pytest-automation.git
+   cd orange-hrm-pytest-automation
+   ```
 
-│   └── employee.json
+2. **Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-├── report/                     # generated after run
+3. **Install dependencies:**
+   ```bash
+   pip install pytest pytest-html selenium webdriver-manager
+   ```
 
-├── conftest.py
-
-├── pytest.ini
-
-├── requirements.txt
-
-└── README.md
-
-# 🚀 Quick start
-Clone the repo
-
-git clone https://github.com/YOUR_USERNAME/orange-hrm-pytest-automation.git
-cd orange-hrm-pytest-automation
-
-#Create & activate a virtual environment (optional but recommended)
-
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
-
-# Install dependencies
-
-pip install -r requirements.txt
-
-Run the full suite
-
-pytest
-# Headless (CI) mode:
-
-pytest --headless
-
-Open the report
-open report/report.html
-
-# 📊 Sample Report
-./docs/report-preview.png
-
-🔧 Customisation
-Table
-| Item              | Where                | Example                                 |
-| ----------------- | -------------------- | --------------------------------------- |
-| New employee data | `data/employee.json` | add more JSON files                     |
-| Browser           | `conftest.py`        | switch to Firefox/Edge                  |
-| Wait timeouts     | each page class      | change `WebDriverWait(driver, 10)`      |
-| Log level         | `conftest.py`        | `logger.add(sys.stderr, level="DEBUG")` |
-
-# 🧪 Run single test
-
-pytest -k valid_login
-pytest tests/test_employee_lifecycle.py::TestEmployeeLifecycle::test_full_employee_lifecycle -v
-
-# 🚶‍♂️ Headless CI (GitHub Actions)
-Already provided: .github/workflows/run-tests.yml
-Push to main – tests execute on Ubuntu + Chrome headless and artifacts (report + screenshots) are uploaded.
-
-# 🐍 Python version
-3.8+ (tested on 3.8 – 3.12)
-
-# 🤝 Contributing
-Pull-requests welcome!
-Please run black + flake8 before submitting.
+4. **Run the test suite:**
+   ```bash
+   pytest --html=report.html --self-contained-html
+   ```
